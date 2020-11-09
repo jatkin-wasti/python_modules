@@ -89,11 +89,55 @@ check_response_code(requests.get("https://www.bbc.co.uk/"))
 - Use cases - browser data
 - Data is in key value pairs
 - Json encoding from a Dictionary
+```
+json_string_variable = json.dumps(dictionary_here)
+```
 - Json decoding into a Dictionary
+```
+dictionary_variable = json.load(jsonfile)
+```
 - Handling/creating files with python
+```
+open("filename.extension", "permission")
+```
+- The "permission" argument is a placeholder for the letters used to specify the file permissions
+- "r" - Read (Default value). Opens file for reading, error occurs if file does not exist
+- "a" - Append. Opens file for appending, creates a file if it does not exist
+- "w" - Write. Opens file for writing, creates file if it does not exist
+- "x" - Create. Creates the specified file, returns an error if the file already exists
 - Writing to files
+```
+open("filename.extension", "w") as alias_name
+alias_name.write("stuff_to_write")
+alias_name.close()
+```
 - Reading from files
-
+```
+open("filename.extension", "r") as alias_name
+first_line = alias_name.readline()
+print(first_line)  # This prints out the first line of the file
+```
+## Exception handling
+- Try - Lets you test a block of code for errors
+```
+try:
+    do_this
+```
+- Except - Lets you handle the error
+```
+except:
+    do_this_if_an_error_is_raised
+```
+- Raise - Used to raise a exceptions
+```
+raise TypeOfException("message to output")
+```
+- Finally - Lets you execute code, regardless of the result of the try and except blocks
+```
+finally:
+    do_this_now
+```
+- Else - Can be used just like in an if block to execute code if no exceptions were raised
 ## Tasks
 ### Task 1
 - Get user input of a float number
