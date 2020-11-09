@@ -5,3 +5,27 @@
 -  
 ## What is pip and how do we use it
 ## APIs with Python
+## Tasks
+### Task 1
+- Get user input of a float number
+- Check if the number is lower than .50 then round the figure to lower end
+- Check if the number is greater than .51 then round the figure to upper end
+### Solution
+- Getting the users input and storing it in a variable
+```
+user_float = input("Please input a decimal number and watch as it gets rounded to the nearest integer value!  ")
+```
+- Finding the decimal place in the number
+```
+decimal_index = user_float.find(".")
+```
+- Checking if the decimal parts are 0.50 or over and rounding up if so
+```
+if int(user_float[decimal_index+1:decimal_index+2]) >= 5:
+    print(f"That number was closer to its upper bound, so just like magic: {math.ceil(float(user_float))} ")
+```
+- Checking if the decimal parts are less than 0.50 and rounding down if so
+```
+elif int(user_float[decimal_index+1:decimal_index+2]) < 5:
+    print(f"That number was closer to its lower bound, so just like magic: {math.floor(float(user_float))} ")
+```
