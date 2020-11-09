@@ -1,11 +1,11 @@
 # Let's have a look at some built in functions in Python
 # import is the keyword we use to call modules from Python libraries
-# from random import random  # This gives us access to the functions in the random module and random class
-# import math  # This gives us access to the functions in the math module
-#
-#
-# # Because we imported the class and file then we don't need to specify the class name first
-# print(random())  # Generates a random float number between 0.0 and 1.0
+from random import random  # This gives us access to the functions in the random module and random class
+import math  # This gives us access to the functions in the math module
+
+
+# Because we imported the class and file then we don't need to specify the class name first
+print(random())  # Generates a random float number between 0.0 and 1.0
 #
 # # Declaring a float and rounding it up and down with imported math methods ceil() and floor()
 # num_float = 23.89
