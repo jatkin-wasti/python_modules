@@ -108,3 +108,33 @@ if int(user_float[decimal_index+1:decimal_index+2]) >= 5:
 elif int(user_float[decimal_index+1:decimal_index+2]) < 5:
     print(f"That number was closer to its lower bound, so just like magic: {math.floor(float(user_float))} ")
 ```
+### Task 2
+- Obtain user input for their post code
+- Use this to get information from the postcodes from the online postcodes API
+- Access the information stored in it to output the longitude and latitude values for the given post code
+### Solution 
+- We need to make requests to the API so we'll import requests
+```
+import requests
+```
+- Defining our function, receiving an input from the user and using concatenation to append it to the base url
+```
+def check_response_code():
+    user_post_code = input("Please enter your post code without spaces e.g. SW1A1AA:  ")
+    combined_url = "https://api.postcodes.io/postcodes/" + user_post_code
+```
+- Using the get() function to attempt to retrieve data about the input post code 
+- If the status code we get back is 200 then it found the post code and we can output the relevant data
+- If the status code is 404 then the post code cannot be found in that API
+- The else statement is to catch all other eventualities just in case something different occurs
+```    
+    live_response = requests.get(combined_url).json()
+    if live_response['status'] == 200:
+        print(f"Post code {live_response['result']['postcode']} has been found\n"
+              f"Longitude: {live_response['result']['longitude']}\n"
+              f"Latitude: {live_response['result']['latitude']}")
+    elif live_response['status'] == 404:
+        print("Post code not found")
+    else:
+        print("Oops something went wrong, please try again")
+```
