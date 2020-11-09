@@ -20,12 +20,12 @@ b = response.json()
 def check_response_code():
     user_post_code = input("Please enter your post code without spaces e.g. SW1A1AA:  ")
     combined_url = "https://api.postcodes.io/postcodes/" + user_post_code
-    live_response = requests.get(combined_url).json()
-    if live_response['status'] == 200:
+    live_response = requests.get(combined_url).json()  # Converts the data to dictionary form
+    if live_response['status'] == 200:  # Checks if the post code can be found
         print(f"Post code {live_response['result']['postcode']} has been found\n"
               f"Longitude: {live_response['result']['longitude']}\n"
               f"Latitude: {live_response['result']['latitude']}")
-    elif live_response['status'] == 404:
+    elif live_response['status'] == 404:  # Checks if the API cannot find the post code
         print("Post code not found")
     else:
         print("Oops something went wrong, please try again")
