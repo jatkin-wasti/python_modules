@@ -84,6 +84,16 @@ check_response_code(requests.get("https://www.bbc.co.uk/"))
 - Application Programming Interfacing
 - Collection of packages 
 ![API image](./API_image.png)
+## JSON basics
+- Java script object notation
+- Use cases - browser data
+- Data is in key value pairs
+- Json encoding from a Dictionary
+- Json decoding into a Dictionary
+- Handling/creating files with python
+- Writing to files
+- Reading from files
+
 ## Tasks
 ### Task 1
 - Get user input of a float number
@@ -124,11 +134,13 @@ def check_response_code():
     combined_url = "https://api.postcodes.io/postcodes/" + user_post_code
 ```
 - Using the get() function to attempt to retrieve data about the input post code 
+```
+live_response = requests.get(combined_url).json()
+```
 - If the status code we get back is 200 then it found the post code and we can output the relevant data
 - If the status code is 404 then the post code cannot be found in that API
 - The else statement is to catch all other eventualities just in case something different occurs
-```    
-    live_response = requests.get(combined_url).json()
+```        
     if live_response['status'] == 200:
         print(f"Post code {live_response['result']['postcode']} has been found\n"
               f"Longitude: {live_response['result']['longitude']}\n"
