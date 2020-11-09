@@ -20,8 +20,7 @@ print(current_sys_path())
 ## APIs with Python
 - Application Programming Interfacing
 - Collection of packages
-- INCLUDE IMAGE FROM TRELLO BELLOW
-- ![API image](API_image.png)
+- ![API image](./API_image.png)
 ## Tasks
 ### Task 1
 - Get user input of a float number
