@@ -3,7 +3,7 @@
 - Built in Functions help us to accelerate the development of our software
 - If we're going to reinvent the wheel there should be a very good reason for doing so
 - When importing, the syntax can either be ``` import random``` which will import the entire module, or we can use 
-```from random import random``` to import specifically the random attribute from the random file
+```from random import random``` to import specifically the random function from the random module
 - When using the former syntax, you would then need the syntax ```random.random()``` to run the random() method as you 
 have to specify the module name before calling objects 
 - Whereas, with the latter syntax, you would only need ```random()``` as you've explicitly imported the specified 
@@ -43,6 +43,38 @@ elif live_response.status_code == 404:  # the code of 404 means that the page wa
 else:
     print("Oops something went wrong, please try later")
 ```
+### Putting this code into a function so we can adhere to the DRY principle
+```
+def check_response_code(live_response):
+    if live_response.status_code == 200:  # the code of 200 means that the website is live
+        print("Mission successful: " + str(live_response.status_code))
+        print(emojize(":thumbs_up:"))
+    elif live_response.status_code == 404:  # the code of 404 means that the page was not found
+        print("Oh no. This page is unavailable right now: " + str(live_response.status_code))
+    else:
+        print("Oops something went wrong, please try later")
+
+
+check_response_code(requests.get("https://www.bbc.co.uk/"))
+```
+- We then change the function to highlight what the requests module brings to the table
+```
+def check_response_code(live_response):
+    if live_response.status_code:
+        print("Mission successful: " + str(live_response.status_code))
+        print(emojize(":thumbs_up:"))
+    elif !live_response.status_code:
+        print("Oh no. This, page is unavailable right now: " + str(live_response.status_code))
+    else:
+        print("Oops something went wrong, please try later")
+
+
+check_response_code(requests.get("https://www.bbc.co.uk/"))
+
+```
+- Here we aren't giving conditions but its checking the boolean values which the requests module gets for us
+- If the status code is between 200 and 400 then status_code is successful and therefore set to True
+- Otherwise it is set to False
 ## What is pip and how do we use it
 - Package manager for Python
 - Helps us install external packages
@@ -50,8 +82,8 @@ else:
 - Syntax is ```pip install name_of_package```
 ## APIs with Python
 - Application Programming Interfacing
-- Collection of packages
-- ![API image](./API_image.png)
+- Collection of packages 
+![API image](./API_image.png)
 ## Tasks
 ### Task 1
 - Get user input of a float number
