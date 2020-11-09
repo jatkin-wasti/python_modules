@@ -3,8 +3,25 @@
 - Built in Functions help us to accelerate the development of our software
 - If we're going to reinvent the wheel there should be a very good reason for doing so
 -  
+### Creating a customised method that utilises built in functions
+```
+def current_sys_path():
+    print("This is your current directory: ")
+    return sys.path
+
+
+print(current_sys_path())
+```
 ## What is pip and how do we use it
+- Package manager for Python
+- Helps us install external packages
+- The package we are installing now is called requests
+- Syntax is ```pip install name_of_package```
 ## APIs with Python
+- Application Programming Interfacing
+- Collection of packages
+- INCLUDE IMAGE FROM TRELLO BELLOW
+- ![API image](/downloads/API_image.png)
 ## Tasks
 ### Task 1
 - Get user input of a float number
