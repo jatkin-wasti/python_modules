@@ -105,6 +105,9 @@ open("filename.extension", "permission")
 - "a" - Append. Opens file for appending, creates a file if it does not exist
 - "w" - Write. Opens file for writing, creates file if it does not exist
 - "x" - Create. Creates the specified file, returns an error if the file already exists
+- "t" - Opens it in text mode
+- "b" - Opens it in binary mode
+- "+" - Opens a file for reading and writing
 - Writing to files
 ```
 open("filename.extension", "w") as alias_name
