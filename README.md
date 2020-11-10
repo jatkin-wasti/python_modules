@@ -118,26 +118,51 @@ first_line = alias_name.readline()
 print(first_line)  # This prints out the first line of the file
 ```
 ## Exception handling
-- Try - Lets you test a block of code for errors
+- We use these blocks when we expect an error or an exception from the python interpreter
+- It helps us handle the errors/exceptions, add customised messages to the user, as well as make a decision based on 
+the customers needs
+- **Try** - Lets you test a block of code for errors
 ```
 try:
     do_this
 ```
-- Except - Lets you handle the error
+- **Except** - Lets you handle the error
 ```
 except:
     do_this_if_an_error_is_raised
 ```
-- Raise - Used to raise a exceptions
+- **Raise** - Used to raise a exceptions
 ```
 raise TypeOfException("message to output")
 ```
-- Finally - Lets you execute code, regardless of the result of the try and except blocks
+- **Finally** - Lets you execute code, regardless of the result of the try and except blocks
 ```
 finally:
     do_this_now
 ```
-- Else - Can be used just like in an if block to execute code if no exceptions were raised
+- **Else** - Can be used just like in an if block to execute code if no exceptions were raised
+### Examples of exception handling
+- We will have a look at the practical use cases and implementation of try, except, raise, and finally
+- We will create a variable to store data from a file using open()
+- **Iteration 1**
+```
+try:
+    file = open("orders.txt")
+except:
+    print("File not found")
+```
+- **Iteration 2** with ```raise``` and ```finally```
+```
+try:
+    file = open("orders.txt")
+except FileNotFoundError as errmsg:
+    print(str(errmsg) + "\nPlease create a file first")
+    # If we still wanted them to see the actual exception together with our customised message
+    raise  # Outputs the actual error message
+finally:  # executes regardless of the above conditions
+    print("Hope you had a good experience using our software, we hope you come back soon!")
+
+```
 ## Tasks
 ### Task 1
 - Get user input of a float number
